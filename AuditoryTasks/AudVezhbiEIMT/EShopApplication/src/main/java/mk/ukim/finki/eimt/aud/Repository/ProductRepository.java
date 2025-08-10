@@ -1,0 +1,17 @@
+package mk.ukim.finki.eimt.aud.Repository;
+
+import mk.ukim.finki.eimt.aud.Model.Entity.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface ProductRepository extends JpaRepository<Product, Long> {
+
+    Optional<Product> findByName(String name);
+
+    Optional<Product> findByNameAndPriceLessThan(String name, Double price);
+
+    void deleteByName(String name);
+}

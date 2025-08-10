@@ -1,0 +1,45 @@
+Dependencies in pom.xml
+====================================================================================================
+Spring Web
+Spring Data JPA
+Spring Data JDBC
+H2 Database
+Lombok
+Thymeleaf
+Swagger UI
+Spring Security
+
+H2-Base configuration in application.properties
+====================================================================================================
+spring.application.name=emt-2025
+
+spring.datasource.url=jdbc:h2:mem:emt-2025
+spring.datasource.username=emt
+spring.datasource.password=emt
+
+spring.jpa.hibernate.ddl-auto=create-drop
+
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2
+
+SwaggerUI in pom.xml
+====================================================================================================
+<dependency>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+    <version>2.8.5</version>
+</dependency>
+
+http://localhost:8080/swagger-ui/index.html
+
+SpringSecutiry in pom.xml
+====================================================================================================
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-test</artifactId>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
