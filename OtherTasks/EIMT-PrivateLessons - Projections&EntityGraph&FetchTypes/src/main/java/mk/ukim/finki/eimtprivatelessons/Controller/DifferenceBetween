@@ -1,0 +1,17 @@
+Controller
+- се анотира со @Controller
+- се враќа некој HTML
+
+RestController
+- се анотира со @RestController
+- се враќа json објект
+- во RequestMapping има prefix /api
+
+I. Back-End App + Thymeleaf as template engine and return HTML
+II. A separate Back-End & Front-End App (React)
+- React & Spring комуницираат преку RestAPI
+    - од Back-End Spring App се испраќаат податоци во json формат
+    - од Front-End React App се примаат податоци со кои потоа се манипулира
+- софтвер кој го развиваме, кога се поврзува со веќе готов софтвер
+пр. Facebook App кој има отворено API - RestAPI за користење
+односно machine-to-macine (back-end-to-back-end) комуникација преку json објекти

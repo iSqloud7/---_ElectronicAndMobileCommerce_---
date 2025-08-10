@@ -1,0 +1,13 @@
+При run на апликацијата SwaggerUI генерира HTML страница,
+во која се наведени сите end points односно методи во рест контролерите.
+Тоа се праќа на front-end тимот кој гледа кои end points може да ги користи,
+како да ги повика, кои параметри да ги испрати итн..
+
+1. Додавање на соодветни dependencies за SwaggerUI.
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.8.5</version>
+        </dependency>
+2. http://localhost:8080/v3/api=docs | http://localhost:8080/swagger-ui/index.html
+- приказ на сите end points

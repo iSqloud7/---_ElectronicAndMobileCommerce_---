@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index-Page</title>
+</head>
+<body>
+
+<div th:each="student : ${students}">
+    <p th:text="|${student.getStudentID()} => ${student.getFirstName()} ${student.getLastName()}|"></p>
+</div>
+
+</body>
+</html>

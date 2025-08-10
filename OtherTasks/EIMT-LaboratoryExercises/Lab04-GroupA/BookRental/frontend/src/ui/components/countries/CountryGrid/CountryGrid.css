@@ -1,0 +1,48 @@
+/* Card wrapper */
+.MuiCard-root {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    padding: 8px;
+    background: linear-gradient(135deg, #f9f9f9, #e0f7fa);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.MuiCard-root:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Card content typography */
+.MuiCardContent-root .MuiTypography-h5 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #00796b;
+}
+
+/* Card actions container */
+.MuiCardActions-root {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+}
+
+/* Buttons inside cards */
+.MuiCardActions-root .MuiButton-root {
+    margin-right: 0.25rem;
+    text-transform: none;
+    font-weight: 500;
+}
+
+.MuiCardActions-root .MuiButton-root:first-child {
+    color: #0288d1;
+}
+
+.MuiCardActions-root .MuiButton-root:nth-child(2) {
+    color: #f57c00;
+}
+
+.MuiCardActions-root .MuiButton-root:last-child {
+    color: #d32f2f;
+    margin-right: 0;
+}

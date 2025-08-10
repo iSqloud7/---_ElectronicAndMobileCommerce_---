@@ -1,0 +1,68 @@
+/* Card container */
+.MuiCard-root {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    padding: 12px;
+    background: linear-gradient(135deg, #f0f4ff, #ffffff);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.MuiCard-root:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Card title */
+.MuiCardContent-root .MuiTypography-h5 {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #2a3eb1;
+}
+
+/* Card actions */
+.MuiCardActions-root {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+}
+
+/* Buttons */
+.MuiCardActions-root .MuiButton-root {
+    margin-right: 0.25rem;
+    text-transform: none;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.MuiCardActions-root .MuiButton-root:last-child {
+    margin-right: 0;
+}
+
+/* Info button */
+.MuiButton-containedInfo {
+    background-color: #1976d2;
+}
+
+.MuiButton-containedInfo:hover {
+    background-color: #115293;
+}
+
+/* Edit button */
+.MuiButton-containedWarning {
+    background-color: #ed6c02;
+}
+
+.MuiButton-containedWarning:hover {
+    background-color: #b54b00;
+}
+
+/* Delete button */
+.MuiButton-containedError {
+    background-color: #d32f2f;
+}
+
+.MuiButton-containedError:hover {
+    background-color: #9a0007;
+}
