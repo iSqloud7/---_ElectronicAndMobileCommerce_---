@@ -1,0 +1,125 @@
+H2Base in application.properties
+================================
+
+spring.application.name=emt-2025
+
+spring.datasource.url=jdbc:h2:mem:emt-2025
+spring.datasource.username=emt
+spring.datasource.password=emt
+
+spring.jpa.hibernate.ddl-auto=create-drop
+
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2
+
+
+
+SwaggerUI in pom.xml
+====================
+<dependency>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+    <version>2.8.5</version>
+</dependency>
+
+http://localhost:8080/swagger-ui/index.html
+
+SpringSecurity in pom.xml
+=========================
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-test</artifactId>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests((requests) -> requests
+                        .requestMatchers("/api/authors", "/api/books").permitAll()
+                        .anyRequest().authenticated()
+                )
+                .formLogin((form) -> form
+                        .loginPage("/login")
+                        .permitAll()
+                )
+                .logout((logout) -> logout.permitAll());
+
+        return http.build();
+    }
+
+    @Bean
+    public UserDetailsService userDetailsService() {
+        UserDetails user =
+                User.withDefaultPasswordEncoder()
+                        .username("user")
+                        .password("password")
+                        .roles("USER")
+                        .build();
+
+        return new InMemoryUserDetailsManager(user);
+    }
+    
+    
+    
+docker-compose.yml in RentalAccommodation
+=========================================
+services:
+  db:
+    image: postgres:17.4
+    restart: always
+    environment:
+      POSTGRES_USER: emt
+      POSTGRES_PASSWORD: emt
+      POSTGRES_DB: emt_shop
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./views.sql:/docker-entrypoint-initdb.d/views.sql
+    ports:
+      - 2345:5432
+volumes:
+  pgdata:
+
+    
+    
+application.properties in resources
+===================================
+server.port=9090
+spring.application.name=RentalAccommodationemt-2025
+springdoc.api-docs.enabled=true
+springdoc.swagger-ui.enabled=true
+spring.profiles.active=dev
+
+
+
+application-dev.properties in resources
+=======================================
+spring.jpa.hibernate.ddl-auto=update
+
+spring.datasource.url=jdbc:postgresql://localhost:2345/emt_shop?useUnicode=true&characterEncoding=UTF-8&serverTimezone=CET
+spring.datasource.username=emt
+spring.datasource.password=emt
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.show-sql=true
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.globally_quoted_identifiers=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.cloud.compatibility-verifier.enabled=false
+
+
+
+application-test.properties
+===========================
+spring.datasource.url=jdbc:h2:mem:emt-2025
+spring.datasource.username=emt
+spring.datasource.password=emt
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2
